@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Shift Report — Archive · NYP Lower Manhattan Nurses, CWA Local 1104</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #18130E;
+      --paper: #F5EFE2;
+      --paper-deep: #EDE5D2;
+      --oxblood: #8A1B2E;
+      --oxblood-deep: #5E121F;
+      --navy: #1B2A3D;
+      --gold: #B8893B;
+      --rule: #2B2520;
+      --muted: #6B5F50;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "IBM Plex Sans", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 16px;
+      background-image: radial-gradient(circle at 1px 1px, rgba(24, 19, 14, 0.04) 1px, transparent 0);
+      background-size: 4px 4px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      border-bottom: 3px solid var(--ink);
+      padding: 28px 0 18px;
+      background: var(--paper);
+    }
+
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .masthead-top .union-mark {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .union-fist {
+      width: 14px;
+      height: 14px;
+      background: var(--oxblood);
+      border-radius: 2px;
+    }
+
+    .masthead h1 {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: clamp(48px, 9vw, 110px);
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      text-align: center;
+      margin: 20px 0 12px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .masthead .accent {
+      color: var(--oxblood);
+      font-style: italic;
+    }
+
+    .tagline {
+      text-align: center;
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-top: 1px solid var(--rule);
+      border-bottom: 4px double var(--ink);
+      padding: 10px 0;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .issue-bar .price {
+      color: var(--oxblood);
+      font-weight: 600;
+    }
+
+    /* ARCHIVE HERO */
+    .archive-hero {
+      padding: 60px 0;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .archive-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) {
+      .archive-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .archive-hero .kicker {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--oxblood);
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: inline-block;
+      border-bottom: 2px solid var(--oxblood);
+      padding-bottom: 4px;
+    }
+
+    .archive-hero h2 {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: clamp(38px, 5.5vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .archive-hero p {
+      font-family: "Fraunces", serif;
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .latest-cover {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 40px;
+      position: relative;
+      aspect-ratio: 3 / 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .latest-cover:hover {
+      transform: translateY(-4px);
+    }
+
+    .latest-cover::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--oxblood) 0%, transparent 70%);
+      opacity: 0.55;
+    }
+
+    .latest-cover-top,
+    .latest-cover-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .latest-cover .latest-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .latest-cover .latest-num {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--paper);
+    }
+
+    .latest-cover .latest-date {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+
+    .latest-cover .latest-headline {
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.1;
+      color: var(--paper);
+      font-style: italic;
+    }
+
+    .latest-cover .latest-cta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--paper);
+      font-weight: 600;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 4px;
+      display: inline-block;
+      margin-top: 16px;
+    }
+
+    /* ARCHIVE GRID */
+    .archive-section {
+      padding: 60px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .section-num {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      color: var(--oxblood);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .section-head h2 {
+      font-family: "Fraunces", serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .section-head .ital {
+      font-style: italic;
+      color: var(--oxblood);
+      font-weight: 600;
+    }
+
+    .lede {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 720px;
+    }
+
+    .year-filter {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .year-filter button {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-weight: 500;
+    }
+
+    .year-filter button:hover {
+      border-color: var(--oxblood);
+    }
+
+    .year-filter button.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .issue-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      text-decoration: none;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .issue-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .issue-card-top {
+      background: var(--paper-deep);
+      padding: 24px 22px 18px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .issue-card-top::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle at bottom right, var(--oxblood) 0%, transparent 65%);
+      opacity: 0.25;
+    }
+
+    .issue-card .num-block {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .issue-card .num {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: 48px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .issue-card .vol {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .issue-card .date {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--oxblood);
+      font-weight: 600;
+    }
+
+    .issue-card-body {
+      padding: 18px 22px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .issue-card h3 {
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      font-size: 21px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .issue-card .teaser {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .issue-card .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .issue-card .topic {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      padding: 3px 8px;
+      border: 1px solid var(--rule);
+      font-weight: 500;
+    }
+
+    .issue-card .read {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--oxblood);
+      font-weight: 600;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .issue-card .read::after {
+      content: " →";
+      transition: margin 0.15s;
+    }
+
+    .issue-card:hover .read::after {
+      margin-left: 4px;
+    }
+
+    .issue-card.upcoming {
+      opacity: 0.45;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--paper),
+        var(--paper) 10px,
+        var(--paper-deep) 10px,
+        var(--paper-deep) 20px
+      );
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 80px 0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    @media (max-width: 820px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .about h2 {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4.5vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .about h2 .ital {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .about p {
+      font-family: "Fraunces", serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(245, 239, 226, 0.85);
+      margin-bottom: 16px;
+    }
+
+    .about .principles {
+      list-style: none;
+      border-left: 3px solid var(--oxblood);
+      padding-left: 24px;
+      counter-reset: p-counter;
+    }
+
+    .about .principles li {
+      padding: 10px 0;
+      font-family: "Fraunces", serif;
+      font-size: 16px;
+      color: rgba(245, 239, 226, 0.85);
+      border-bottom: 1px dotted rgba(245, 239, 226, 0.2);
+    }
+
+    .about .principles li::before {
+      content: counter(p-counter, decimal-leading-zero);
+      counter-increment: p-counter;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      color: var(--gold);
+      margin-right: 12px;
+      font-weight: 600;
+    }
+
+    .about .principles li:last-child {
+      border-bottom: none;
+    }
+
+    /* SUBSCRIBE / SUBMISSION BAR */
+    .subscribe-bar {
+      background: var(--oxblood);
+      color: var(--paper);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .subscribe-bar h3 {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 30px);
+      margin-bottom: 16px;
+    }
+
+    .subscribe-bar .cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .subscribe-bar a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: var(--paper);
+      color: var(--oxblood);
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--paper);
+      transition: all 0.15s;
+    }
+
+    .subscribe-bar a:hover {
+      background: transparent;
+      color: var(--paper);
+    }
+
+    .subscribe-bar a.outline {
+      background: transparent;
+      color: var(--paper);
+    }
+
+    .subscribe-bar a.outline:hover {
+      background: var(--paper);
+      color: var(--oxblood);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(245, 239, 226, 0.2);
+    }
+
+    @media (max-width: 700px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .footer-grid h4 {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    footer .brand {
+      font-family: "Fraunces", serif;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(245, 239, 226, 0.75);
+      margin-bottom: 10px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: rgba(245, 239, 226, 0.85);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .solidarity {
+      text-align: center;
+      padding-top: 30px;
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .copyright {
+      text-align: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(245, 239, 226, 0.5);
+      margin-top: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-top">
+        <div class="union-mark">
+          <div class="union-fist"></div>
+          <span>CWA Local 1104 · Rank &amp; File Publication</span>
+        </div>
+        <div>An Independent Member Newsletter</div>
+      </div>
+
+      <h1>The Shift <span class="accent">Report</span></h1>
+      <p class="tagline">— Voice of NYP Lower Manhattan Nurses —</p>
+
+      <div class="issue-bar">
+        <span>Est. [YEAR]</span>
+        <span>Published Monthly</span>
+        <span class="price">By Nurses, For Nurses</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- LATEST ISSUE HERO -->
+  <section class="archive-hero">
+    <div class="container">
+      <div class="archive-hero-inner">
+        <div>
+          <span class="kicker">Latest Issue · Just Released</span>
+          <h2>What's on the floors this month.</h2>
+          <p>The Shift Report is an independent, rank-and-file newsletter for the nurses of NYP Lower Manhattan. Every issue covers hospital changes, staffing reports, your contract, your delegates, and your colleagues.</p>
+          <p>Read the latest issue, browse the archive, or print a copy for the bulletin board on your unit.</p>
+        </div>
+
+        <!-- The featured cover links to the most recent issue -->
+        <a href="issue-001.html" class="latest-cover">
+          <div class="latest-cover-top">
+            <div class="latest-label">★ Current Issue ★</div>
+            <div class="latest-num">№ 01</div>
+            <div class="latest-date">Month YYYY</div>
+          </div>
+          <div class="latest-cover-bottom">
+            <div class="latest-headline">"What's actually changing on the units — and what we're doing about it."</div>
+            <div class="latest-cta">Read this issue →</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHIVE GRID -->
+  <section class="archive-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">§ ARCHIVE</span>
+        <h2>Every <span class="ital">Issue</span></h2>
+      </div>
+
+      <p class="lede">Every back issue, in reverse chronological order. Click any card to read the full issue. Each issue includes a "Print" button for unit bulletin boards.</p>
+
+      <div class="year-filter" id="yearFilter">
+        <button class="active" data-year="all">All Years</button>
+        <button data-year="2026">2026</button>
+        <button data-year="2025">2025</button>
+      </div>
+
+      <div class="issue-grid" id="issueGrid">
+        <!-- CURRENT ISSUE -->
+        <a href="issue-001.html" class="issue-card" data-year="2026">
+          <div class="issue-card-top">
+            <div class="num-block">
+              <span class="num">01</span>
+              <span class="vol">Vol. I · No. 1</span>
+            </div>
+            <div class="date">Month YYYY</div>
+          </div>
+          <div class="issue-card-body">
+            <h3>What's actually changing on the units</h3>
+            <p class="teaser">"Lead story teaser appears here. One or two sentences pulled from the front-page lede — enough to make a member want to read the full piece on their next break."</p>
+            <div class="topics">
+              <span class="topic">Staffing</span>
+              <span class="topic">CBA Art. X</span>
+              <span class="topic">Weingarten</span>
+            </div>
+            <div class="read">Read Issue 01</div>
+          </div>
+        </a>
+
+        <!-- PLACEHOLDER ISSUE -->
+        <a href="issue-002.html" class="issue-card upcoming" data-year="2026">
+          <div class="issue-card-top">
+            <div class="num-block">
+              <span class="num">02</span>
+              <span class="vol">Vol. I · No. 2</span>
+            </div>
+            <div class="date">Coming Soon</div>
+          </div>
+          <div class="issue-card-body">
+            <h3>Next issue lands [date]</h3>
+            <p class="teaser">Submit story tips, advice column questions, and Nurse of the Month nominations to the editorial team.</p>
+            <div class="topics">
+              <span class="topic">In Production</span>
+            </div>
+            <div class="read">Coming Soon</div>
+          </div>
+        </a>
+
+        <!-- PLACEHOLDER ISSUE -->
+        <a href="#" class="issue-card upcoming" data-year="2026">
+          <div class="issue-card-top">
+            <div class="num-block">
+              <span class="num">03</span>
+              <span class="vol">Vol. I · No. 3</span>
+            </div>
+            <div class="date">TBD</div>
+          </div>
+          <div class="issue-card-body">
+            <h3>Future issue placeholder</h3>
+            <p class="teaser">When this issue publishes, replace this card with the real headline, teaser, and link.</p>
+            <div class="topics">
+              <span class="topic">Forthcoming</span>
+            </div>
+            <div class="read">Forthcoming</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-inner">
+        <div>
+          <h2>What <span class="ital">we are.</span></h2>
+          <p>The Shift Report is an independent newsletter produced by rank-and-file RN members of CWA Local 1104 at NewYork-Presbyterian Lower Manhattan Hospital.</p>
+          <p>We are not the hospital's communications office. We are not the official voice of the Local. We are nurses, writing for nurses, about what's happening on our floors and at our table.</p>
+          <p>Every member is invited to contribute — story tips, advice column questions, Nurse of the Month nominations, photographs, op-eds. Submissions are reviewed for accuracy and edited for length, not for ideology.</p>
+        </div>
+
+        <div>
+          <h2>What we <span class="ital">stand on.</span></h2>
+          <ol class="principles">
+            <li>Members deserve to know what's happening before management announces it.</li>
+            <li>The contract is only as strong as the members who know how to enforce it.</li>
+            <li>Safe staffing isn't a benefit — it's the floor, not the ceiling.</li>
+            <li>Wins should be celebrated publicly. Losses should be learned from publicly.</li>
+            <li>An injury to one is an injury to all.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE BAR -->
+  <div class="subscribe-bar">
+    <div class="container">
+      <h3>Get every issue in your inbox.</h3>
+      <div class="cta-row">
+        <a href="mailto:shiftreport@example.com?subject=Subscribe">Subscribe by email</a>
+        <a href="mailto:shiftreport@example.com?subject=Story%20Tip" class="outline">Submit a tip</a>
+        <a href="mailto:shiftreport@example.com?subject=Nurse%20of%20the%20Month%20Nomination" class="outline">Nominate a nurse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">The Shift Report</div>
+          <p>An independent newsletter by and for the rank-and-file RNs of NewYork-Presbyterian Lower Manhattan Hospital, members of CWA Local 1104.</p>
+          <p>Editorial views expressed are those of the contributors and do not represent official positions of CWA, the Local, or the hospital.</p>
+        </div>
+
+        <div>
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="mailto:shiftreport@example.com">Become a contributor</a></li>
+            <li><a href="mailto:shiftreport@example.com">Submit a story tip</a></li>
+            <li><a href="mailto:shiftreport@example.com">Ask the Nurse Next Door</a></li>
+            <li><a href="mailto:shiftreport@example.com">Nominate Nurse of the Month</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://cwa-union.org" target="_blank" rel="noopener">CWA National</a></li>
+            <li><a href="https://cwa-local1104.org" target="_blank" rel="noopener">Local 1104</a></li>
+            <li><a href="#">Current CBA (PDF)</a></li>
+            <li><a href="#">File a grievance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="solidarity">An injury to one is an injury to all.</p>
+      <p class="copyright">© [YEAR] · Produced by Rank-and-File Members · Not Funded by the Hospital</p>
+    </div>
+  </footer>
+
+  <script>
+    const yearButtons = document.querySelectorAll("#yearFilter button");
+    const issueCards = document.querySelectorAll("#issueGrid .issue-card");
+
+    yearButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        yearButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const year = btn.dataset.year;
+
+        issueCards.forEach((card) => {
+          card.style.display = year === "all" || card.dataset.year === year ? "" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
